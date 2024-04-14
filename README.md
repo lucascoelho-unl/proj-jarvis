@@ -1,1 +1,5 @@
-# proj-jarvis
+## Jarvis Project
+
+# Lucas Coelho
+
+TODO: description 
