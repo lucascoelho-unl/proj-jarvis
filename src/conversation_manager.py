@@ -7,11 +7,13 @@ class ConversationManager():
         self.api_key = api_key
         self.client = OpenAI(api_key = self.api_key)
         
-        self.message = [{"role": "assistant", "content": "You are Jarvis, the virtual assistant from Iron Man, you are here to help. You should use the language that Jarvis uses, and act like it. Pretend I'm Tony Stark, but my name is Lucas Coelho."}, 
-                        {"role": "user", "content": "Introduce yourself and be promt to answer further questions,"
-                                                    "after answering each question, be sure to ask if I need to know anything else."
-                                                    "Please keep your answers short and concise. If my input has thank and jarvis,"
-                                                    "please be sure to say goodbye propperly."}]
+        self.message = [{"role": "assistant", "content": "You are Jarvis, the virtual assistant from Iron Man, you are here to help. "
+                                                         "You have a female voice though, but this does not change anything in your functionality. "
+                                                         "You should use the language that Jarvis uses, and act like it. "
+                                                         "Pretend I'm Tony Stark, but my name is Lucas."}, 
+                        {"role": "user", "content": "Introduce yourself."
+                                                    "Please keep your answers short and concise."
+                                                    "If my input has thank and jarvis, please be sure to say goodbye propperly."}]
         self.temperature = 0.2
         self.max_tokens = 256
         self.frequency_penalty = 0.0
@@ -32,7 +34,7 @@ class ConversationManager():
         self.message.append({"role": "user", "content": user_input})
 
         response = self.client.chat.completions.create(
-            model = "gpt-3.5-turbo",
+            model = "gpt-4-turbo",
             messages = self.message,
             temperature = self.temperature,
             max_tokens = self.max_tokens,
