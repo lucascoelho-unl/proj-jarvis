@@ -11,11 +11,13 @@ def capture_voice_input():
 
 def convert_voice_to_text(audio):
     try:
+        # Recognize speech using Google Speech Recognition
         text = recognizer.recognize_google(audio)
         print(text)
+        return text
     except sr.UnknownValueError:
         text = ""
-        print("\n> Not understandable audio input. Try again")
+        return "Not understandable audio input. Try again"
     except sr.RequestError as e:
         text = ""
         print("Error; {0}".format(e))
