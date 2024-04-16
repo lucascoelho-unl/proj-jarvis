@@ -23,7 +23,7 @@ class ConversationManager():
         
         print(introduction.choices[0].message.content)
         
-    def conversation(self, user_input) -> None:
+    def get_message(self, user_input) -> None:
     
         self.message.append({"role": "user", "content": user_input})
 
@@ -39,28 +39,3 @@ class ConversationManager():
         
         return response.choices[0].message.content
     
-    def chat_assistant(self, user_input):
-        
-        assistant = self.client.beta.assistants.create(
-            name="Jarvis",
-            instructions="You are Jarvis, the virtual assistant from Iron Man, you are here to help me code in various programming. You should use the language that Jarvis uses, and act like it.",
-            tools=[{"type": "code_interpreter"}],
-            model="gpt-3.5-turbo",
-            )
-
-        thread = self.client.beta.threads.create()
-            
-        message = self.client.beta.threads.messages.create(
-            thread_id = thread.id,
-            role = "user",
-            content = user_input
-            )
-            
-        with self.client.beta.threads.runs.stream(
-            thread_id = thread.id,
-            assistant_id = assistant.id,
-            event_handler = EventHandler(),
-            additional_messages = message
-        ) as stream:
-            stream.until_done()
-            
