@@ -9,4 +9,3 @@ def speak(text):
     filename = 'voice_output.mp3'
     tts.save(filename)
     playsound.playsound(filename)
-    

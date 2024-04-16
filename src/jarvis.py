@@ -1,4 +1,5 @@
 import os
+import time
 from conversation_manager import ConversationManager
 from audio_input import get_audio_input
 from speaker_output import speak
