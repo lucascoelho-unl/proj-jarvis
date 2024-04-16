@@ -11,7 +11,7 @@ def capture_voice_input():
 def convert_voice_to_text(audio):
     try:
         text = recognizer.recognize_google(audio)
-        print("You said: " + text)
+        print("\n> " + text)
     except sr.UnknownValueError:
         text = ""
         print("Sorry, I didn't understand that.")
