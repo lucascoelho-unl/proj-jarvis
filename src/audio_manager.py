@@ -2,7 +2,6 @@ import speech_recognition as sr
 
 recognizer = sr.Recognizer()
 recognizer.energy_threshold = 10000
-recognizer.adjust_for_ambient_noise()
 
 def capture_voice_input():
     with sr.Microphone() as source:
