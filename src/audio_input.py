@@ -4,8 +4,8 @@ recognizer = sr.Recognizer()
 recognizer.energy_threshold = 10000
 
 def capture_voice_input():
+    print("\n> ", end='', flush=True)
     with sr.Microphone() as source:
-        print("\n> ", end='')
         audio = recognizer.listen(source)
     return audio
 
@@ -13,7 +13,7 @@ def convert_voice_to_text(audio):
     try:
         # Recognize speech using Google Speech Recognition
         text = recognizer.recognize_google(audio)
-        print(text)
+        print(text, flush=True)
         return text
     except sr.UnknownValueError:
         text = ""
