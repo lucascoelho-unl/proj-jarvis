@@ -1,7 +1,8 @@
 import speech_recognition as sr
 
 recognizer = sr.Recognizer()
-recognizer.energy_threshold = 10000
+recognizer.energy_threshold = 15000
+recognizer.pause_threshold = 1.2
 
 def capture_voice_input():
     print("\n> ", end='', flush=True)

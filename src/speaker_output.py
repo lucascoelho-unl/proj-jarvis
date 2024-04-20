@@ -1,15 +1,11 @@
-import os
-import time
-import playsound
-import speech_recognition as sr
-from gtts import gTTS
-import mac_say
+import subprocess
 
-def speak(text):
-    print(text, end='', flush=True)
-    # tts = gTTS(text=text, lang='en', tld='co.uk', slow=True)
-    # filename = 'voice_output.mp3'
-    # tts.save(filename)
-    # playsound.playsound(filename)
-    text_to_say = "say  -v Daniel " + text
-    os.system(text_to_say)
+def speak(text, print_text=""):
+    if print_text == "":
+        print(text, end='', flush=True)
+    else:
+        print(print_text, end="", flush=True)
+
+    # Construct the command using subprocess
+    cmd = ["say", "-v", "Daniel", "-r", "180", text]
+    subprocess.run(cmd)

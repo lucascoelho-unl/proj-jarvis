@@ -3,7 +3,6 @@ import auto_guide
 
 def handle_response(text):
     processed_text = text.split(";")
-
         
     if processed_text[0] == "note":
         print(flush=True)
@@ -28,5 +27,6 @@ def handle_response(text):
     
     else:
         print(flush=True)
-        speak(processed_text[0])
+        new_text = processed_text[0].replace(",","")
+        speak(new_text, print_text=processed_text[0])
         

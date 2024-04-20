@@ -18,6 +18,7 @@ def write_note_in_notes_app(title, body):
     pyautogui.keyUp('command')
     pyautogui.typewrite(title)
     pyautogui.press('enter')
+    pyautogui.press('enter')
     pyautogui.typewrite(body)
 
     # Close Notes

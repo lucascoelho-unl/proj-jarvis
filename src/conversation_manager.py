@@ -27,7 +27,7 @@ class ConversationManager():
             If my input talks about oppening a google page, please make sure to format your response as the following:
             google;Of course sir, oppening [NAME OF THE WEB PAGE TO BE OPENED].;[NAME OF THE WEB PAGE];Done! Can I do anythign else for you, sir?
         '''
-                         }]
+        }]
         self.temperature = 0.2
         self.max_tokens = 256
         self.frequency_penalty = 0.0
