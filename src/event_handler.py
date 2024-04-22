@@ -1,5 +1,6 @@
 from speaker_output import speak
 import auto_guide
+import utils
 
 def handle_response(text):
     processed_text = text.split(";")
@@ -25,8 +26,13 @@ def handle_response(text):
         print(flush=True)
         speak(processed_text[3])
     
+    elif processed_text[0] == 'weather':
+        print(flush=True)
+        weather_info = utils.get_weather(processed_text[1])
+        speak(weather_info)
+        print(flush=True)
+    
     else:
         print(flush=True)
         new_text = processed_text[0].replace(",","")
         speak(new_text, print_text=processed_text[0])
-        

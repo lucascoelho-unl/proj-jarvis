@@ -7,5 +7,5 @@ def speak(text, print_text=""):
         print(print_text, end="", flush=True)
 
     # Construct the command using subprocess
-    cmd = ["say", "-v", "Daniel", "-r", "180", text]
+    cmd = ["say", "-v", "Daniel", "-r", "185", text]
     subprocess.run(cmd)
