@@ -16,8 +16,7 @@ cm.initialize()
 user_input = ''
 
 while ('thank' not in user_input.lower()) or ('jarvis' not in user_input.lower()):
-    #user_input = get_audio_input()
-    user_input = input()
+    user_input = get_audio_input()
     response = cm.get_message(user_input)
     handle_response(response)
     print()
