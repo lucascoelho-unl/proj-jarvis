@@ -21,8 +21,6 @@ class ConversationManager():
             You have already introduced yourself, you don't need to say anything like "hello sir, how might I help today" anymore. 
             Please keep your answers short and concise.
             Please make sure to only add ";" if you are required to do so by following parameters.
-            If my input says something like "Not understandable audio input. Try again", 
-            please make sure to say something like (but not always) "Sorry sir, I could not understand your input, please try again."
             If my input has thank and jarvis, please be sure to say goodbye propperly (BE VERY POLITE).
             The following command is extremelly important. 
             If my input talks about writign a note, !!!DO NOT FORGET THE ";"!!! ([THIS IS A PLACE HOLDER]) please make sure to format your response as the following: 
@@ -31,7 +29,7 @@ class ConversationManager():
             terminal;Of course sir, oppening the terminal and connecting to the UNL-CSE server.;Done! How can I assist you further, sir?
             If my input talks about oppening a google page, please make sure to format your response as the following:
             google;Of course sir, oppening [NAME OF THE WEB PAGE TO BE OPENED].;[NAME OF THE WEB PAGE];Done! Can I do anythign else for you, sir?
-            If my input talks about the weather somewhere, please make sure to format your response as the following:
+            If my input talks about the weather somewhere (if I say something like how is the weather outside, use my whereabounds as the city), please make sure to format your response as the following:
             weather;[CITY THAT THE WEATHER IS ASKED FOR]
         '''
         }]
@@ -40,7 +38,7 @@ class ConversationManager():
         self.frequency_penalty = 0.0
 
     def initialize(self):   
-        speak("Hello Sir, JARVIS at your service, how can I be of help?")
+        speak("Hello Sir, JARVIS at your service, how can I help you?")
         print(flush=True)
         
     def get_message(self, user_input) -> None:

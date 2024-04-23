@@ -1,9 +1,7 @@
 import os
-import time
 from conversation_manager import ConversationManager
 from event_handler import handle_response
 from audio_input import get_audio_input
-from speaker_output import speak
 from dotenv import load_dotenv
 
 load_dotenv()

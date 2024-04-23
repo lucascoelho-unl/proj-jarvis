@@ -1,7 +1,7 @@
 import speech_recognition as sr
 
 recognizer = sr.Recognizer()
-recognizer.energy_threshold = 15000
+recognizer.energy_threshold = 10000
 recognizer.pause_threshold = 1.2
 
 def capture_voice_input():
@@ -23,7 +23,6 @@ def convert_voice_to_text(audio):
         text = ""
         print("Error; {0}".format(e))
     return text
-
 
 def get_audio_input():
     audio = capture_voice_input()
