@@ -30,6 +30,13 @@ def handle_response(text):
         print(flush=True)
         weather_info = utils.get_weather(processed_text[1])
         speak(weather_info)
+
+    elif processed_text[0] == 'calendar':
+        print(flush=True)
+        speak("Of course, Sir! Setting up event in your Apple Calendar.")
+        auto_guide.create_calendar_event(processed_text[1])
+        print(flush=True)
+        speak("Done, you can now see the event in your calendar. Can I help with anything else, sir?")
     
     else:
         print(flush=True)

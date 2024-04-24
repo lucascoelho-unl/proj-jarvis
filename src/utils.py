@@ -2,8 +2,9 @@ import requests
 import dotenv
 import os
 import objc
-from CoreLocation import CLLocationManager, CLGeocoder, CLLocation
 import time 
+from datetime import datetime
+from CoreLocation import CLLocationManager
 
 dotenv.load_dotenv()
 
@@ -49,3 +50,8 @@ def get_weather(city):
     else:
         return f"Sorry, I could not access the weather information for {city}."
 
+# Function to get the current time
+def get_current_date_time():
+    now = datetime.now()
+    current_date_time = now.strftime("%A, %B %d, %Y %I:%M %p")
+    return current_date_time

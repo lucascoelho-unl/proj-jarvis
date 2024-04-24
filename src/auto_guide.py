@@ -61,3 +61,26 @@ def open_web_page(page_name):
     # Search for web page
     pyautogui.typewrite(page_name)
     pyautogui.press('enter')
+
+def create_calendar_event(event):
+    # Open the calendar
+    pyautogui.keyDown('command')
+    pyautogui.press('space')
+    pyautogui.keyUp('command')
+    pyautogui.typewrite("calendar")
+    pyautogui.press('enter')
+    time.sleep(1.5)
+
+    # Select new event creation mode
+    pyautogui.keyDown('command')
+    pyautogui.press('n')
+    pyautogui.keyUp('command')
+
+    # Write new event
+    pyautogui.typewrite(event)
+    pyautogui.press('enter')
+
+    # Minimize calendar
+    pyautogui.keyDown('command')
+    pyautogui.press('m')
+    pyautogui.keyUp('command')

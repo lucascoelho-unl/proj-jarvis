@@ -4,6 +4,7 @@ from openai import OpenAI
 from speaker_output import speak
 
 latitude, longitude = utils.get_current_location()
+curr_time = utils.get_current_date_time()
 
 class ConversationManager():
     def __init__(self, api_key) -> None:
@@ -14,6 +15,8 @@ class ConversationManager():
         {'role': 'system', 'content': 
         f'''
             You are Jarvis, the virtual assistant from Iron Man, you are here to help.  
+            The current date and time is: {curr_time}
+            When asked about the date, please make sure to be polite.
             My current whereabouts are Latitude = {latitude}, Longitude = {longitude}. 
             The important information is the city that these coordinates give. Please deduct it and use the city, state and country if asked for, not the latitude and longitude
             You should use the language that Jarvis uses. 
@@ -31,6 +34,8 @@ class ConversationManager():
             google;Of course sir, oppening [NAME OF THE WEB PAGE TO BE OPENED].;[NAME OF THE WEB PAGE];Done! Can I do anythign else for you, sir?
             If my input talks about the weather somewhere (if I say something like how is the weather outside, use my whereabounds as the city), please make sure to format your response as the following:
             weather;[CITY THAT THE WEATHER IS ASKED FOR]
+            If my input talks about the scheduling something (if I say something like i have a meeting or something like that), please make sure to format your response as the following:
+            calendar;[DESCRIPTION OF THE EVENT including TIME OF THE EVENT and DAY OF THE EVENT]
         '''
         }]
         self.temperature = 0.2
@@ -38,7 +43,7 @@ class ConversationManager():
         self.frequency_penalty = 0.0
 
     def initialize(self):   
-        speak("Hello Sir, JARVIS at your service, how can I help you?")
+        speak("Hello Sir, JARVIS at your service, how can I help you?", print_text="Hello Sir, J.A.R.V.I.S. at your service, how can I help you?")
         print(flush=True)
         
     def get_message(self, user_input) -> None:
