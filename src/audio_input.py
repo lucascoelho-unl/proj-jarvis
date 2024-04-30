@@ -7,6 +7,7 @@ recognizer.pause_threshold = 1.2
 def capture_voice_input():
     print("\n> ", end='', flush=True)
     with sr.Microphone() as source:
+        recognizer.adjust_for_ambient_noise(source)
         audio = recognizer.listen(source)
     return audio
 

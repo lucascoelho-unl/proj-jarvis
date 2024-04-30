@@ -2,7 +2,7 @@ import requests
 import dotenv
 import os
 import objc
-import time 
+import time
 from datetime import datetime
 from CoreLocation import CLLocationManager
 
